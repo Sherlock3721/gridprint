@@ -18,3 +18,10 @@ windows = { version = "0.58.0", features = [
     "Win32_Security",
     "Win32_UI_Shell"
 ] }
+
+[profile.release]
+opt-level = "z"       # Optimize for size
+lto = true            # Enable Link-Time Optimization (LTO)
+codegen-units = 1     # Reduce codegen units to improve size optimization
+panic = "abort"       # Abort on panic to remove unwinding code
+strip = true          # Strip symbols and debug info from binary
